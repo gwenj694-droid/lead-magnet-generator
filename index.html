@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Magnet Generator - Create Irresistible Free Offers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #000000 0%, #1a0d1a 50%, #000000 100%);
+        }
+        .content-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 50%, #7c3aed 100%);
+        }
+        .luxury-shadow {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(168, 85, 247, 0.2);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.02); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .shimmer-text {
+            background: linear-gradient(90deg, #a855f7, #fff, #a855f7);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s infinite;
+        }
+        .purple-button {
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+            transition: all 0.3s ease;
+        }
+        .purple-button:hover {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+        }
+        .type-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .type-card:hover {
+            transform: scale(1.05);
+        }
+        .type-card.selected {
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+            border-color: #c084fc;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-transparent bg-clip-text shimmer-text mb-4">
+                🧲 Lead Magnet Generator
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-6">
+                Create irresistible free offers that convert visitors into subscribers!
+            </p>
+            <div class="content-gradient text-white px-8 py-4 rounded-full inline-block font-bold pulse-animation luxury-shadow">
+                💎 Build Your Email List Like a Pro!
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="max-w-6xl mx-auto mb-8">
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="showTab('generator')" id="generatorTab" class="purple-button text-white px-6 py-3 rounded-lg font-semibold">
+                    🎯 Lead Magnet Generator
+                </button>
+                <button onclick="showTab('library')" id="libraryTab" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                    📚 My Lead Magnets
+                </button>
+                <button onclick="showTab('ideas')" id="ideasTab" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                    💡 Ideas & Examples
+                </button>
+                <button onclick="showTab('templates')" id="templatesTab" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                    📄 Copy Templates
+                </button>
+            </div>
+        </div>
+
+        <!-- Generator View -->
+        <div id="generatorView" class="max-w-6xl mx-auto">
+            <!-- Step 1: Choose Lead Magnet Type -->
+            <div class="bg-black rounded-2xl luxury-shadow p-8 mb-8 border border-purple-500">
+                <h3 class="text-3xl font-bold text-purple-400 mb-6">🎯 Step 1: Choose Your Lead Magnet Type</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="type-card bg-slate-800 p-6 rounded-lg border border-slate-600" onclick="selectType('ebook')">
+                        <div class="text-4xl mb-4">📚</div>
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">eBook/Guide</h4>
+                        <p class="text-gray-300">Comprehensive guides, how-to manuals, industry reports</p>
+                    </div>
+                    
+                    <div class="type-card bg-slate-800 p-6 rounded-lg border border-slate-600" onclick="selectType('checklist')">
+                        <div class="text-4xl mb-4">✅</div>
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">Checklist</h4>
+                        <p class="text-gray-300">Step-by-step checklists, action plans, to-do lists</p>
+                    </div>
+                    
+                    <div class="type-card bg-slate-800 p-6 rounded-lg border border-slate-600" onclick="selectType('template')">
+                        <div class="text-4xl mb-4">📋</div>
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">Template</h4>
+                        <p class="text-gray-300">Ready-to-use templates, worksheets, planners</p>
+                    </div>
+                    
+                    <div class="type-card bg-slate-800 p-6 rounded-lg border border-slate-600" onclick="selectType('webinar')">
+                        <div class="text-4xl mb-4">🎥</div>
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">Webinar</h4>
+                        <p class="text-gray-300">Live or recorded training sessions, masterclasses</p>
+                    </div>
+                    
+                    <div class="type-card bg-slate-800 p-6 rounded-lg border border-slate-600" onclick="selectType('toolkit')">
+                        <div class="text-4xl mb-4">🧰</div>
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">Toolkit/Bundle</h4>
+                        <p class="text-gray-300">Resource bundles, tool collections, starter kits</p>
+                    </div>
+                    
+                    <div class="type-card bg-slate-800 p-6 rounded-lg border border-slate-600" onclick="selectType('course')">
+                        <div class="text-4xl mb-4">🎓</div>
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">Mini Course</h4>
+                        <p class="text-gray-300">Email courses, video series, challenges</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Define Your Audience -->
+            <div class="bg-black rounded-2xl luxury-shadow p-8 mb-8 border border-purple-500">
+                <h3 class="text-3xl font-bold text-purple-400 mb-6">👥 Step 2: Define Your Target Audience</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Industry/Niche</label>
+                        <select id="industry" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400">
+                            <option value="">Select industry...</option>
+                            <option value="business">💼 Business & Entrepreneurship</option>
+                            <option value="marketing">📈 Marketing & Sales</option>
+                            <option value="fitness">💪 Health & Fitness</option>
+                            <option value="finance">💰 Finance & Investing</option>
+                            <option value="tech">💻 Technology & Software</option>
+                            <option value="education">🎓 Education & Training</option>
+                            <option value="lifestyle">🌟 Lifestyle & Personal Development</option>
+                            <option value="creative">🎨 Creative & Design</option>
+                            <option value="food">🍳 Food & Cooking</option>
+                            <option value="travel">✈️ Travel & Adventure</option>
+                            <option value="parenting">👶 Parenting & Family</option>
+                            <option value="real-estate">🏠 Real Estate</option>
+                            <option value="digital-marketing">🚀 Digital Marketing & Agencies</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Experience Level</label>
+                        <select id="experience" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400">
+                            <option value="">Select level...</option>
+                            <option value="beginner">🌱 Beginner/Newbie</option>
+                            <option value="intermediate">📈 Intermediate</option>
+                            <option value="advanced">🚀 Advanced/Expert</option>
+                            <option value="mixed">🎯 Mixed Levels</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-purple-400 font-semibold mb-2">Target Audience Description</label>
+                    <textarea id="audienceDescription" placeholder="Describe your ideal subscriber (e.g., 'Small business owners struggling with social media marketing who want to increase their online presence...')" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400 h-24 resize-none"></textarea>
+                </div>
+            </div>
+
+            <!-- Step 3: Problem & Solution -->
+            <div class="bg-black rounded-2xl luxury-shadow p-8 mb-8 border border-purple-500">
+                <h3 class="text-3xl font-bold text-purple-400 mb-6">🎯 Step 3: Problem & Solution</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Main Problem/Pain Point</label>
+                        <textarea id="mainProblem" placeholder="What specific problem does your audience face? (e.g., 'Struggling to create engaging social media content consistently...')" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400 h-32 resize-none"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Your Solution/Value</label>
+                        <textarea id="solution" placeholder="How does your lead magnet solve this problem? (e.g., 'A 30-day content calendar with ready-to-post ideas...')" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400 h-32 resize-none"></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-purple-400 font-semibold mb-2">Desired Outcome/Transformation</label>
+                    <textarea id="outcome" placeholder="What result will your audience achieve? (e.g., 'Never run out of content ideas and save 5+ hours per week...')" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400 h-24 resize-none"></textarea>
+                </div>
+            </div>
+
+            <!-- Step 4: Content Details -->
+            <div class="bg-black rounded-2xl luxury-shadow p-8 mb-8 border border-purple-500">
+                <h3 class="text-3xl font-bold text-purple-400 mb-6">📝 Step 4: Content Details</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Lead Magnet Title</label>
+                        <input type="text" id="leadMagnetTitle" placeholder="e.g., 'The Ultimate Social Media Content Calendar'" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Subtitle/Description</label>
+                        <input type="text" id="subtitle" placeholder="e.g., '30 Days of Ready-to-Post Content Ideas'" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-purple-400 font-semibold mb-2">Key Features/What's Included</label>
+                    <textarea id="features" placeholder="List what's included (e.g., '✓ 30 content ideas, ✓ Posting schedule template, ✓ Hashtag research guide...')" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400 h-32 resize-none"></textarea>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Format/Delivery</label>
+                        <select id="format" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400">
+                            <option value="">Select format...</option>
+                            <option value="pdf">📄 PDF Download</option>
+                            <option value="video">🎥 Video Series</option>
+                            <option value="email">📧 Email Course</option>
+                            <option value="webinar">🎥 Live Webinar</option>
+                            <option value="audio">🎧 Audio/Podcast</option>
+                            <option value="bundle">📦 Resource Bundle</option>
+                            <option value="tool">🛠️ Online Tool/Calculator</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-purple-400 font-semibold mb-2">Estimated Value</label>
+                        <input type="text" id="value" placeholder="e.g., '$97 Value - Yours FREE!'" class="w-full p-3 bg-slate-700 border border-purple-500 rounded-lg text-white focus:ring-2 focus:ring-purple-400">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="text-center mb-8">
+                <button onclick="generateLeadMagnet()" class="purple-button text-white px-12 py-4 rounded-lg font-bold text-xl">
+                    🚀 Generate My Lead Magnet
+                </button>
+            </div>
+
+            <!-- Generated Output -->
+            <div id="generatedOutput" class="hidden bg-black rounded-2xl luxury-shadow p-8 border border-green-500">
+                <h3 class="text-3xl font-bold text-green-400 mb-6">🎉 Your Lead Magnet is Ready!</h3>
+                <div id="outputContent"></div>
+            </div>
+        </div>
+
+        <!-- Library View -->
+        <div id="libraryView" class="max-w-6xl mx-auto hidden">
+            <div class="bg-black rounded-2xl luxury-shadow p-8 border border-purple-500">
+                <h3 class="text-3xl font-bold text-purple-400 mb-6">📚 My Lead Magnet Library</h3>
+                <div id="leadMagnetLibrary" class="space-y-4">
+                    <p class="text-gray-400 text-center py-8">No lead magnets created yet. Use the generator to create your first one!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ideas View -->
+        <div id="ideasView" class="max-w-6xl mx-auto hidden">
+            <div class="bg-black rounded-2xl luxury-shadow p-8 border border-purple-500">
+                <h3 class="text-3xl font-bold text-purple-400 mb-6">💡 Lead Magnet Ideas & Examples</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Business Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">💼 Business & Entrepreneurship</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "The 90-Day Business Launch Checklist"</li>
+                            <li>• "10 Legal Documents Every Business Needs"</li>
+                            <li>• "Startup Cost Calculator & Budget Template"</li>
+                            <li>• "The Complete Guide to Business Credit"</li>
+                            <li>• "50 Passive Income Ideas for Entrepreneurs"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Marketing Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">📈 Marketing & Sales</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "The Ultimate Social Media Content Calendar"</li>
+                            <li>• "Email Marketing Templates That Convert"</li>
+                            <li>• "SEO Checklist for Small Businesses"</li>
+                            <li>• "The Perfect Sales Funnel Blueprint"</li>
+                            <li>• "100 High-Converting Headlines"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Health & Fitness Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">💪 Health & Fitness</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "30-Day Home Workout Challenge"</li>
+                            <li>• "Meal Prep Guide for Busy Professionals"</li>
+                            <li>• "The Complete Beginner's Guide to Nutrition"</li>
+                            <li>• "7-Day Detox Plan & Shopping List"</li>
+                            <li>• "Workout Tracker & Progress Journal"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Finance Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">💰 Finance & Money</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "The Complete Budgeting Toolkit"</li>
+                            <li>• "Debt Payoff Calculator & Action Plan"</li>
+                            <li>• "Investment Guide for Beginners"</li>
+                            <li>• "50 Ways to Save $1000 This Year"</li>
+                            <li>• "Retirement Planning Checklist"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Creative Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">🎨 Creative & Design</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "Brand Identity Design Kit"</li>
+                            <li>• "Color Psychology Guide for Designers"</li>
+                            <li>• "Photography Composition Cheat Sheet"</li>
+                            <li>• "Canva Templates Bundle"</li>
+                            <li>• "Typography Pairing Guide"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Lifestyle Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">🌟 Lifestyle & Personal Development</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "The Ultimate Productivity Planner"</li>
+                            <li>• "30-Day Self-Care Challenge"</li>
+                            <li>• "Goal Setting Workbook & Tracker"</li>
+                            <li>• "Morning Routine Guide for Success"</li>
+                            <li>• "Mindfulness & Meditation Starter Kit"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Digital Marketing Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">🚀 Digital Marketing</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "The Complete Facebook Ads Audit Checklist"</li>
+                            <li>• "50 High-Converting Ad Headlines"</li>
+                            <li>• "Google Ads Setup & Optimization Guide"</li>
+                            <li>• "Email Marketing ROI Calculator"</li>
+                            <li>• "Social Media Analytics Dashboard Template"</li>
+                            <li>• "Landing Page Conversion Checklist"</li>
+                            <li>• "Content Marketing Calendar Template"</li>
+                            <li>• "PPC Budget Planning Worksheet"</li>
+                            <li>• "A/B Testing Results Tracker"</li>
+                            <li>• "Marketing Funnel Blueprint"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Agency & Freelancer Ideas -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                        <h4 class="text-xl font-bold text-orange-400 mb-4">🏢 Agency & Freelancers</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• "Client Onboarding Checklist & Templates"</li>
+                            <li>• "Digital Marketing Proposal Template"</li>
+                            <li>• "Monthly Reporting Dashboard Template"</li>
+                            <li>• "Pricing Calculator for Marketing Services"</li>
+                            <li>• "Client Discovery Questionnaire"</li>
+                            <li>• "Marketing Audit Template & Checklist"</li>
+                            <li>• "Contract Templates for Digital Marketers"</li>
+                            <li>• "Time Tracking & Project Management Kit"</li>
+                            <li>• "Client Retention Strategy Guide"</li>
+                            <li>• "Scaling Your Agency Playbook"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Templates View -->
+        <div id="templatesView" class="max-w-6xl mx-auto hidden">
+            <div class="bg-black rounded-2xl luxury-shadow p-8 border border-purple-500">
+                <h3 class="text-3xl font-bold text-purple-400 mb-6">📄 Copy Templates</h3>
+                
+                <div class="space-y-8">
+                    <!-- Landing Page Copy -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">📄 Landing Page Copy Template</h4>
+                        <div class="bg-slate-700 p-4 rounded text-gray-300 font-mono text-sm">
+                            <p><strong>Headline:</strong> Get [BENEFIT] in Just [TIMEFRAME] - FREE!</p><br>
+                            <p><strong>Subheadline:</strong> [SPECIFIC OUTCOME] Without [COMMON STRUGGLE]</p><br>
+                            <p><strong>Problem:</strong> Are you tired of [PAIN POINT]? You're not alone...</p><br>
+                            <p><strong>Solution:</strong> Introducing [LEAD MAGNET NAME] - your complete guide to [DESIRED OUTCOME]</p><br>
+                            <p><strong>What's Inside:</strong></p>
+                            <p>✓ [BENEFIT 1]</p>
+                            <p>✓ [BENEFIT 2]</p>
+                            <p>✓ [BENEFIT 3]</p><br>
+                            <p><strong>CTA:</strong> Download Your FREE [LEAD MAGNET] Now!</p>
+                        </div>
+                        <button onclick="copyTemplate('landing')" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">📋 Copy Template</button>
+                    </div>
+
+                    <!-- Email Sequence -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">📧 Welcome Email Sequence</h4>
+                        <div class="bg-slate-700 p-4 rounded text-gray-300 font-mono text-sm">
+                            <p><strong>Email 1 - Delivery:</strong></p>
+                            <p>Subject: Your [LEAD MAGNET] is here! 🎉</p>
+                            <p>Hi [NAME], Thanks for downloading [LEAD MAGNET]! Here's your link: [DOWNLOAD LINK]</p><br>
+                            <p><strong>Email 2 - Value:</strong></p>
+                            <p>Subject: Quick question about [LEAD MAGNET]</p>
+                            <p>Have you had a chance to check out [LEAD MAGNET]? Here's how to get the most out of it...</p><br>
+                            <p><strong>Email 3 - Story:</strong></p>
+                            <p>Subject: Why I created [LEAD MAGNET]</p>
+                            <p>Let me tell you the story behind [LEAD MAGNET] and why it matters...</p>
+                        </div>
+                        <button onclick="copyTemplate('email')" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">📋 Copy Template</button>
+                    </div>
+
+                    <!-- Social Media Promotion -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-600">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">📱 Social Media Promotion Templates</h4>
+                        <div class="bg-slate-700 p-4 rounded text-gray-300 font-mono text-sm">
+                            <p><strong>Instagram Post:</strong></p>
+                            <p>🔥 FREE [LEAD MAGNET] Alert! 🔥</p>
+                            <p>Struggling with [PROBLEM]? I've got you covered!</p>
+                            <p>✨ Get my [LEAD MAGNET] and discover:</p>
+                            <p>✓ [BENEFIT 1]</p>
+                            <p>✓ [BENEFIT 2]</p>
+                            <p>✓ [BENEFIT 3]</p>
+                            <p>Link in bio! 👆</p><br>
+                            <p><strong>Facebook Post:</strong></p>
+                            <p>Hey friends! I just released my [LEAD MAGNET] and wanted to share it with you for FREE!</p>
+                            <p>If you've been struggling with [PROBLEM], this is exactly what you need.</p>
+                            <p>Comment "SEND IT" and I'll DM you the link! 💙</p>
+                        </div>
+                        <button onclick="copyTemplate('social')" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">📋 Copy Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedType = '';
+        let leadMagnets = JSON.parse(localStorage.getItem('leadMagnets')) || [];
+
+        function showTab(tabName) {
+            // Hide all views
+            document.getElementById('generatorView').classList.add('hidden');
+            document.getElementById('libraryView').classList.add('hidden');
+            document.getElementById('ideasView').classList.add('hidden');
+            document.getElementById('templatesView').classList.add('hidden');
+            
+            // Reset all tab buttons
+            document.querySelectorAll('button[id$="Tab"]').forEach(btn => {
+                btn.className = 'bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-all';
+            });
+            
+            // Show selected view and highlight tab
+            document.getElementById(tabName + 'View').classList.remove('hidden');
+            document.getElementById(tabName + 'Tab').className = 'purple-button text-white px-6 py-3 rounded-lg font-semibold';
+            
+            if (tabName === 'library') {
+                displayLibrary();
+            }
+        }
+
+        function selectType(type) {
+            selectedType = type;
+            
+            // Remove selected class from all cards
+            document.querySelectorAll('.type-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked card
+            event.currentTarget.classList.add('selected');
+        }
+
+        function generateLeadMagnet() {
+            // Get form values
+            const industry = document.getElementById('industry').value;
+            const experience = document.getElementById('experience').value;
+            const audienceDescription = document.getElementById('audienceDescription').value;
+            const mainProblem = document.getElementById('mainProblem').value;
+            const solution = document.getElementById('solution').value;
+            const outcome = document.getElementById('outcome').value;
+            const title = document.getElementById('leadMagnetTitle').value;
+            const subtitle = document.getElementById('subtitle').value;
+            const features = document.getElementById('features').value;
+            const format = document.getElementById('format').value;
+            const value = document.getElementById('value').value;
+
+            // Validation
+            if (!selectedType || !industry || !mainProblem || !solution || !title) {
+                alert('Please fill in all required fields (Type, Industry, Problem, Solution, and Title)');
+                return;
+            }
+
+            // Create lead magnet object
+            const leadMagnet = {
+                id: Date.now(),
+                type: selectedType,
+                industry: industry,
+                experience: experience,
+                audienceDescription: audienceDescription,
+                mainProblem: mainProblem,
+                solution: solution,
+                outcome: outcome,
+                title: title,
+                subtitle: subtitle,
+                features: features,
+                format: format,
+                value: value,
+                created: new Date().toISOString()
+            };
+
+            // Save to library
+            leadMagnets.push(leadMagnet);
+            localStorage.setItem('leadMagnets', JSON.stringify(leadMagnets));
+
+            // Generate output
+            displayGeneratedOutput(leadMagnet);
+        }
+
+        function displayGeneratedOutput(leadMagnet) {
+            const outputDiv = document.getElementById('generatedOutput');
+            const contentDiv = document.getElementById('outputContent');
+
+            const typeEmojis = {
+                'ebook': '📚',
+                'checklist': '✅',
+                'template': '📋',
+                'webinar': '🎥',
+                'toolkit': '🧰',
+                'course': '🎓'
+            };
+
+            const industryEmojis = {
+                'business': '💼',
+                'marketing': '📈',
+                'fitness': '💪',
+                'finance': '💰',
+                'tech': '💻',
+                'education': '🎓',
+                'lifestyle': '🌟',
+                'creative': '🎨',
+                'food': '🍳',
+                'travel': '✈️',
+                'parenting': '👶',
+                'real-estate': '🏠',
+                'digital-marketing': '🚀'
+            };
+
+            contentDiv.innerHTML = `
+                <div class="space-y-6">
+                    <!-- Lead Magnet Overview -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-green-500">
+                        <h4 class="text-2xl font-bold text-green-400 mb-4">${typeEmojis[leadMagnet.type]} ${leadMagnet.title}</h4>
+                        ${leadMagnet.subtitle ? `<p class="text-xl text-gray-300 mb-4">${leadMagnet.subtitle}</p>` : ''}
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div><strong class="text-purple-400">Type:</strong> ${leadMagnet.type.charAt(0).toUpperCase() + leadMagnet.type.slice(1)}</div>
+                            <div><strong class="text-purple-400">Industry:</strong> ${industryEmojis[leadMagnet.industry]} ${leadMagnet.industry.charAt(0).toUpperCase() + leadMagnet.industry.slice(1)}</div>
+                            ${leadMagnet.format ? `<div><strong class="text-purple-400">Format:</strong> ${leadMagnet.format}</div>` : ''}
+                            ${leadMagnet.value ? `<div><strong class="text-purple-400">Value:</strong> ${leadMagnet.value}</div>` : ''}
+                        </div>
+                    </div>
+
+                    <!-- Landing Page Copy -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-purple-500">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">📄 Landing Page Copy</h4>
+                        <div class="bg-slate-700 p-4 rounded text-gray-300 space-y-3">
+                            <div><strong class="text-yellow-400">Headline:</strong> Get ${leadMagnet.title} - FREE!</div>
+                            ${leadMagnet.subtitle ? `<div><strong class="text-yellow-400">Subheadline:</strong> ${leadMagnet.subtitle}</div>` : ''}
+                            <div><strong class="text-yellow-400">Problem:</strong> ${leadMagnet.mainProblem}</div>
+                            <div><strong class="text-yellow-400">Solution:</strong> ${leadMagnet.solution}</div>
+                            ${leadMagnet.outcome ? `<div><strong class="text-yellow-400">Outcome:</strong> ${leadMagnet.outcome}</div>` : ''}
+                            ${leadMagnet.features ? `<div><strong class="text-yellow-400">What's Included:</strong><br>${leadMagnet.features.replace(/\n/g, '<br>')}</div>` : ''}
+                        </div>
+                        <button onclick="copyGeneratedContent('landing', ${leadMagnet.id})" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">📋 Copy Landing Page</button>
+                    </div>
+
+                    <!-- Email Templates -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-purple-500">
+                        <h4 class="text-xl font-bold text-purple-400 mb-4">📧 Email Sequence</h4>
+                        <div class="bg-slate-700 p-4 rounded text-gray-300 space-y-4">
+                            <div>
+                                <strong class="text-yellow-400">Welcome Email:</strong><br>
+                                Subject: Your ${leadMagnet.title} is here! 🎉<br>
+                                Hi there! Thanks for downloading "${leadMagnet.title}". You're about to discover ${leadMagnet.solution.toLowerCase()}...
+                            </div>
+                            <div>
+                                <strong class="text-yellow-400">Follow-up Email:</strong><br>
+                                Subject: Quick question about ${leadMagnet.title}<br>
+                                Have you had a chance to check out your ${leadMagnet.title}? I'd love to know what you think...
+                            </div>
+                        </div>
+                        <button onclick="copyGeneratedContent('email', ${leadMagnet.id})" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">📋 Copy Email Sequence</button>
+                    </div>
+
+                    <!-- Social Media Posts -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-pink-500">
+                        <h4 class="text-xl font-bold text-pink-400 mb-4">📱 Social Media Posts</h4>
+                        <div class="bg-slate-700 p-4 rounded text-gray-300 space-y-4">
+                            <div>
+                                <strong class="text-yellow-400">Instagram Post:</strong><br>
+                                🔥 FREE ${leadMagnet.title} Alert! 🔥<br>
+                                ${leadMagnet.mainProblem}<br>
+                                ✨ Get my ${leadMagnet.title} and discover how to ${leadMagnet.solution.toLowerCase()}<br>
+                                Link in bio! 👆
+                            </div>
+                            <div>
+                                <strong class="text-yellow-400">LinkedIn Post:</strong><br>
+                                I just released my "${leadMagnet.title}" and wanted to share it with my network for FREE!<br>
+                                If you've been dealing with: ${leadMagnet.mainProblem.toLowerCase()}<br>
+                                This resource will help you: ${leadMagnet.solution.toLowerCase()}<br>
+                                Comment "INTERESTED" and I'll send you the link!
+                            </div>
+                        </div>
+                        <button onclick="copyGeneratedContent('social', ${leadMagnet.id})" class="mt-4 bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded">📋 Copy Social Posts</button>
+                    </div>
+
+                    <!-- Action Steps -->
+                    <div class="bg-slate-800 p-6 rounded-lg border border-green-500">
+                        <h4 class="text-xl font-bold text-green-400 mb-4">🚀 Next Steps</h4>
+                        <div class="space-y-2 text-gray-300">
+                            <div>✅ Create your ${leadMagnet.format || 'lead magnet content'}</div>
+                            <div>✅ Set up a landing page with the copy above</div>
+                            <div>✅ Create an email sequence for new subscribers</div>
+                            <div>✅ Promote on social media using the posts above</div>
+                            <div>✅ Track conversions and optimize</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            outputDiv.classList.remove('hidden');
+            outputDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyGeneratedContent(type, id) {
+            const leadMagnet = leadMagnets.find(lm => lm.id === id);
+            if (!leadMagnet) return;
+
+            let textToCopy = '';
+
+            if (type === 'landing') {
+                textToCopy = `LANDING PAGE COPY\n\n` +
+                    `Headline: Get ${leadMagnet.title} - FREE!\n` +
+                    (leadMagnet.subtitle ? `Subheadline: ${leadMagnet.subtitle}\n` : '') +
+                    `\nProblem: ${leadMagnet.mainProblem}\n` +
+                    `\nSolution: ${leadMagnet.solution}\n` +
+                    (leadMagnet.outcome ? `\nOutcome: ${leadMagnet.outcome}\n` : '') +
+                    (leadMagnet.features ? `\nWhat's Included:\n${leadMagnet.features}\n` : '') +
+                    `\nCTA: Download Your FREE ${leadMagnet.title} Now!`;
+            } else if (type === 'email') {
+                textToCopy = `EMAIL SEQUENCE\n\n` +
+                    `EMAIL 1 - DELIVERY\n` +
+                    `Subject: Your ${leadMagnet.title} is here! 🎉\n` +
+                    `Hi there! Thanks for downloading "${leadMagnet.title}". You're about to discover ${leadMagnet.solution.toLowerCase()}...\n\n` +
+                    `EMAIL 2 - FOLLOW-UP\n` +
+                    `Subject: Quick question about ${leadMagnet.title}\n` +
+                    `Have you had a chance to check out your ${leadMagnet.title}? I'd love to know what you think...`;
+            } else if (type === 'social') {
+                textToCopy = `SOCIAL MEDIA POSTS\n\n` +
+                    `INSTAGRAM POST:\n` +
+                    `🔥 FREE ${leadMagnet.title} Alert! 🔥\n` +
+                    `${leadMagnet.mainProblem}\n` +
+                    `✨ Get my ${leadMagnet.title} and discover how to ${leadMagnet.solution.toLowerCase()}\n` +
+                    `Link in bio! 👆\n\n` +
+                    `LINKEDIN POST:\n` +
+                    `I just released my "${leadMagnet.title}" and wanted to share it with my network for FREE!\n` +
+                    `If you've been dealing with: ${leadMagnet.mainProblem.toLowerCase()}\n` +
+                    `This resource will help you: ${leadMagnet.solution.toLowerCase()}\n` +
+                    `Comment "INTERESTED" and I'll send you the link!`;
+            }
+
+            copyToClipboard(textToCopy, `${type.charAt(0).toUpperCase() + type.slice(1)} content copied!`);
+        }
+
+        function copyTemplate(type) {
+            let textToCopy = '';
+
+            if (type === 'landing') {
+                textToCopy = `LANDING PAGE TEMPLATE\n\n` +
+                    `Headline: Get [BENEFIT] in Just [TIMEFRAME] - FREE!\n` +
+                    `Subheadline: [SPECIFIC OUTCOME] Without [COMMON STRUGGLE]\n\n` +
+                    `Problem: Are you tired of [PAIN POINT]? You're not alone...\n\n` +
+                    `Solution: Introducing [LEAD MAGNET NAME] - your complete guide to [DESIRED OUTCOME]\n\n` +
+                    `What's Inside:\n✓ [BENEFIT 1]\n✓ [BENEFIT 2]\n✓ [BENEFIT 3]\n\n` +
+                    `CTA: Download Your FREE [LEAD MAGNET] Now!`;
+            } else if (type === 'email') {
+                textToCopy = `EMAIL SEQUENCE TEMPLATE\n\n` +
+                    `Email 1 - Delivery:\nSubject: Your [LEAD MAGNET] is here! 🎉\n` +
+                    `Hi [NAME], Thanks for downloading [LEAD MAGNET]! Here's your link: [DOWNLOAD LINK]\n\n` +
+                    `Email 2 - Value:\nSubject: Quick question about [LEAD MAGNET]\n` +
+                    `Have you had a chance to check out [LEAD MAGNET]? Here's how to get the most out of it...\n\n` +
+                    `Email 3 - Story:\nSubject: Why I created [LEAD MAGNET]\n` +
+                    `Let me tell you the story behind [LEAD MAGNET] and why it matters...`;
+            } else if (type === 'social') {
+                textToCopy = `SOCIAL MEDIA TEMPLATES\n\n` +
+                    `INSTAGRAM POST:\n🔥 FREE [LEAD MAGNET] Alert! 🔥\n` +
+                    `Struggling with [PROBLEM]? I've got you covered!\n` +
+                    `✨ Get my [LEAD MAGNET] and discover:\n✓ [BENEFIT 1]\n✓ [BENEFIT 2]\n✓ [BENEFIT 3]\n` +
+                    `Link in bio! 👆\n\n` +
+                    `FACEBOOK POST:\nHey friends! I just released my [LEAD MAGNET] and wanted to share it with you for FREE!\n` +
+                    `If you've been struggling with [PROBLEM], this is exactly what you need.\n` +
+                    `Comment "SEND IT" and I'll DM you the link! 💙`;
+            }
+
+            copyToClipboard(textToCopy, 'Template copied to clipboard!');
+        }
+
+        function displayLibrary() {
+            const libraryDiv = document.getElementById('leadMagnetLibrary');
+            
+            if (leadMagnets.length === 0) {
+                libraryDiv.innerHTML = '<p class="text-gray-400 text-center py-8">No lead magnets created yet. Use the generator to create your first one!</p>';
+                return;
+            }
+
+            const typeEmojis = {
+                'ebook': '📚',
+                'checklist': '✅',
+                'template': '📋',
+                'webinar': '🎥',
+                'toolkit': '🧰',
+                'course': '🎓'
+            };
+
+            libraryDiv.innerHTML = leadMagnets.map(lm => `
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-600 card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h4 class="text-xl font-bold text-purple-400">${typeEmojis[lm.type]} ${lm.title}</h4>
+                            ${lm.subtitle ? `<p class="text-gray-300">${lm.subtitle}</p>` : ''}
+                        </div>
+                        <button onclick="deleteLeadMagnet(${lm.id})" class="text-red-400 hover:text-red-300">🗑️</button>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-400 mb-4">
+                        <div><strong>Type:</strong> ${lm.type.charAt(0).toUpperCase() + lm.type.slice(1)}</div>
+                        <div><strong>Industry:</strong> ${lm.industry.charAt(0).toUpperCase() + lm.industry.slice(1)}</div>
+                        <div><strong>Created:</strong> ${new Date(lm.created).toLocaleDateString()}</div>
+                        ${lm.format ? `<div><strong>Format:</strong> ${lm.format}</div>` : ''}
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="viewLeadMagnet(${lm.id})" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded text-sm">👁️ View</button>
+                        <button onclick="copyLeadMagnet(${lm.id})" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">📋 Copy</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteLeadMagnet(id) {
+            if (confirm('Delete this lead magnet?')) {
+                leadMagnets = leadMagnets.filter(lm => lm.id !== id);
+                localStorage.setItem('leadMagnets', JSON.stringify(leadMagnets));
+                displayLibrary();
+            }
+        }
+
+        function viewLeadMagnet(id) {
+            const leadMagnet = leadMagnets.find(lm => lm.id === id);
+            if (!leadMagnet) return;
+            
+            // Switch to generator tab and display the lead magnet
+            showTab('generator');
+            displayGeneratedOutput(leadMagnet);
+        }
+
+        function copyLeadMagnet(id) {
+            const leadMagnet = leadMagnets.find(lm => lm.id === id);
+            if (!leadMagnet) return;
+            
+            const textToCopy = `LEAD MAGNET: ${leadMagnet.title}\n\n` +
+                `Type: ${leadMagnet.type}\n` +
+                `Industry: ${leadMagnet.industry}\n` +
+                (leadMagnet.subtitle ? `Subtitle: ${leadMagnet.subtitle}\n` : '') +
+                `\nProblem: ${leadMagnet.mainProblem}\n` +
+                `Solution: ${leadMagnet.solution}\n` +
+                (leadMagnet.outcome ? `Outcome: ${leadMagnet.outcome}\n` : '') +
+                (leadMagnet.features ? `Features: ${leadMagnet.features}\n` : '');
+            
+            copyToClipboard(textToCopy, 'Lead magnet details copied!');
+        }
+
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show temporary success message
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg z-50';
+                alertDiv.textContent = message;
+                document.body.appendChild(alertDiv);
+                setTimeout(() => alertDiv.remove(), 2000);
+            }).catch(() => {
+                alert('Could not copy to clipboard');
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('generator');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97240b2a902abdbe',t:'MTc1NTcxNTQ4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
